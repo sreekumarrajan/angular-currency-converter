@@ -5,15 +5,21 @@
   <div class="slds-form-element">
     <label class="slds-form-element__label" for="from-currency">Type in amount and select currency:</label>
     <div class="slds-form-element__control">
-      <input type="text" id="from-currency" class="slds-input" placeholder="0.00" />
+      <input type="number"
+             id="from-currency"
+             class="slds-input"
+             placeholder="0.00"
+             [ngModel]="fromCurrencyDenomination"
+             (ngModelChange)="onInputChange($event, 'from')"
+      />
     </div>
     <div class="slds-form-element__control">
       <div class="slds-select_container">
-        <select class="slds-select" id="select-01">
-          <option value="">Please select</option>
-          <option>Option One</option>
-          <option>Option Two</option>
-          <option>Option Three</option>
+        <select [ngModel]="selectedFromCurrency"
+                (ngModelChange)="onCurrencyChange($event, 'from')"
+                name="Select Currency"
+                class="slds-select">
+          <option *ngFor="let fromCurrency of currencies" [ngValue]="fromCurrency">{{fromCurrency.label}}</option>
         </select>
       </div>
     </div>
@@ -21,15 +27,21 @@
   <div class="slds-form-element">
     <label class="slds-form-element__label" for="to-currency">Converted amount:</label>
     <div class="slds-form-element__control">
-      <input type="text" id="to-currency" class="slds-input" placeholder="0.00" />
+      <input type="number"
+             id="to-currency"
+             class="slds-input"
+             placeholder="0.00"
+             [ngModel]="toCurrencyDenomination"
+             (ngModelChange)="onInputChange($event, 'to')"
+      />
     </div>
     <div class="slds-form-element__control">
       <div class="slds-select_container">
-        <select class="slds-select" id="select-01">
-          <option value="">Please select</option>
-          <option>Option One</option>
-          <option>Option Two</option>
-          <option>Option Three</option>
+        <select [ngModel]="selectedToCurrency"
+                (ngModelChange)="onCurrencyChange($event, 'to')"
+                name="Select Currency"
+                class="slds-select">
+          <option *ngFor="let toCurrency of currencies" [ngValue]="toCurrency">{{toCurrency.label}}</option>
         </select>
       </div>
     </div>
