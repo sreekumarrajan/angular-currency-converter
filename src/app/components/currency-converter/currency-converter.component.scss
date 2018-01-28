@@ -1,0 +1,25 @@
+@import '~scss/variables';
+.currency-converter-container {
+  padding: 10px;
+}
+.slds {
+  &-form-element__label {
+    color: $label-color;
+  }
+  &-text-link-container {
+    text-align: right;
+    .slds-text-link {
+      text-decoration: underline;
+      .slds-text-heading_small {
+        font-size: 8px;
+        color: $link-color;
+      }
+    }
+  }
+}
+
+
+
+
+
+

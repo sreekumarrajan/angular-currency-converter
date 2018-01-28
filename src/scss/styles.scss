@@ -1,0 +1,36 @@
+@import './variables';
+@import './mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+.flex-item {
+  border: 1px solid silver;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  width: auto;
+  min-width: $container-min-width;
+}
+
+@media screen and (max-width: $break-large) {
+  .flex-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .flex-item {
+    margin: auto;
+    margin-top: 10px;
+  }
+
+}

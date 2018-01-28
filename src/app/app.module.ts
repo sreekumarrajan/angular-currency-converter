@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CurrencyConverterComponent
   ],
   imports: [
     BrowserModule

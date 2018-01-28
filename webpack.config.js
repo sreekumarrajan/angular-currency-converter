@@ -550,7 +550,7 @@ module.exports = {
       "./src/polyfills.ts"
     ],
     "styles": [
-      "./src/styles.css"
+      "./src/scss/styles.scss"
     ]
   },
   "output": {
