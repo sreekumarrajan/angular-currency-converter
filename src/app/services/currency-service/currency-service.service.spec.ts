@@ -1,11 +1,16 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { CurrencyService } from './currency-service.service';
+import {ApiService} from '../api-service/api-service.service';
+import {MockApiService} from '../../test/mocks/mock-api-service.service';
+import {FormsModule} from '@angular/forms';
 
 describe('CurrencyService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CurrencyService]
+      imports: [ FormsModule ],
+      providers: [CurrencyService,
+        {provide: ApiService, useClass: MockApiService}]
     });
   });
 
