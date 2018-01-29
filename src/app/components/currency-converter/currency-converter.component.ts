@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CURRENCIES, Currency} from '../../models/currency.model';
 import {CurrencyService} from '../../services/currency-service/currency-service.service';
+import {APP_ENDPOINTS} from '../../app.endpoints';
 
 @Component({
   selector: 'app-currency-converter',
@@ -18,10 +19,12 @@ export class CurrencyConverterComponent implements OnInit {
   errorMessage: string;
   readonly DEFAULT_SELECTED_FROM_CURRENCY = 'CAD';
   readonly DEFAULT_SELECTED_TO_CURRENCY = 'USD';
+  disclaimerLink: string;
 
   constructor(private currencyService: CurrencyService) { }
 
   ngOnInit() {
+    this.disclaimerLink = APP_ENDPOINTS.DisclaimerLink;
     this.currencies = CURRENCIES;
     this.currencies.forEach(currency => {
       if (currency.label === this.DEFAULT_SELECTED_FROM_CURRENCY) {

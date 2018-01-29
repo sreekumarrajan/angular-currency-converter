@@ -3,5 +3,6 @@ export const APP_ENDPOINTS = {
   'ReplacementStrings': {
     'Base': '${BASE}',
     'Target': '${TARGET}'
-  }
+  },
+  'DisclaimerLink': 'https://www.google.ca/intl/en/googlefinance/disclaimer/'
 }
