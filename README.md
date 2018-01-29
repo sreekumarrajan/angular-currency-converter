@@ -2,6 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
 
+To Do (Proposals):
+
+Feature Extensions: 
+1. Add a graph component that shows the trend of the currency rates selected over time.
+2. Support Internationalization for Language Toggle. Add language Toggle button at page level.
+
+Technical backlogs and improvements:
+1. Device a scheme to cache Api Calls so that the api calls are not fired unnecesarily. 
+The API results are update once every day so we could refresh once a day to sync with back end updates.
+
+2. Add unit tests for services.
+
+3. Move common utility functions to util service that is already created in Utils Module.
+   One such example is to format the number to two decimal places.
+4. Implement Html template using AEM  Sightly.
+
 ## Development server
 
 Prerequisites:
