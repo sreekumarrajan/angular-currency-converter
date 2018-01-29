@@ -5,4 +5,4 @@ export const APP_ENDPOINTS = {
     'Target': '${TARGET}'
   },
   'DisclaimerLink': 'https://www.google.ca/intl/en/googlefinance/disclaimer/'
-}
+};

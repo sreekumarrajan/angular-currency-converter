@@ -15,7 +15,7 @@ export class CurrencyConverterComponent implements OnInit {
   fromCurrencyDenomination: number;
   toCurrencyDenomination: number;
   currencies: Array<Currency>;
-  hasError: boolean = false;
+  hasError = false;
   errorMessage: string;
   readonly DEFAULT_SELECTED_FROM_CURRENCY = 'CAD';
   readonly DEFAULT_SELECTED_TO_CURRENCY = 'USD';
