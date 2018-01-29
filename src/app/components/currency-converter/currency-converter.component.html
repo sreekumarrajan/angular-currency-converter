@@ -1,57 +1,62 @@
-<div class="slds-form slds-form_stacked currency-converter-container">
+<div class="currency-converter-container">
   <div class="slds-media__body">
     <h1 class="slds-page-header__title slds-truncate slds-align-left" title="Currency Converter">Currency Converter</h1>
   </div>
   <div class="slds-form-element">
     <label class="slds-form-element__label" for="from-currency">Type in amount and select currency:</label>
-    <div class="slds-form-element__control">
-      <input type="number"
-             id="from-currency"
-             class="slds-input"
-             placeholder="0.00"
-             [ngModel]="fromCurrencyDenomination"
-             (ngModelChange)="onInputChange($event, 'from')"
-      />
-    </div>
-    <div class="slds-form-element__control">
-      <div class="slds-select_container">
-        <select [ngModel]="selectedFromCurrency"
-                (ngModelChange)="onCurrencyChange($event, 'from')"
-                name="Select Currency"
-                class="slds-select">
-          <option *ngFor="let fromCurrency of currencies" [ngValue]="fromCurrency">{{fromCurrency.label}}</option>
-        </select>
+    <div class="flex-row">
+      <div class="slds-form-element__control flex-col">
+        <input type="number"
+               id="from-currency"
+               class="slds-input"
+               placeholder="0.00"
+               [ngModel]="fromCurrencyDenomination"
+               (ngModelChange)="onInputChange($event, 'from')"
+        />
+      </div>
+      <div class="slds-form-element__control flex-col">
+        <div class="slds-select_container">
+          <select [ngModel]="selectedFromCurrency"
+                  (ngModelChange)="onCurrencyChange($event, 'from')"
+                  name="Select Currency"
+                  class="slds-select">
+            <option *ngFor="let fromCurrency of currencies" [ngValue]="fromCurrency">{{fromCurrency.label}}</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
   <div class="slds-form-element">
     <label class="slds-form-element__label" for="to-currency">Converted amount:</label>
-    <div class="slds-form-element__control">
-      <input type="number"
-             id="to-currency"
-             class="slds-input"
-             placeholder="0.00"
-             [ngModel]="toCurrencyDenomination"
-             (ngModelChange)="onInputChange($event, 'to')"
-      />
-    </div>
-    <div class="slds-form-element__control">
-      <div class="slds-select_container">
-        <select [ngModel]="selectedToCurrency"
-                (ngModelChange)="onCurrencyChange($event, 'to')"
-                name="Select Currency"
-                class="slds-select">
-          <option *ngFor="let toCurrency of currencies" [ngValue]="toCurrency">{{toCurrency.label}}</option>
-        </select>
+    <div class="flex-row">
+      <div class="slds-form-element__control flex-col">
+        <input type="number"
+               id="to-currency"
+               class="slds-input"
+               placeholder="0.00"
+               [ngModel]="toCurrencyDenomination"
+               (ngModelChange)="onInputChange($event, 'to')"
+        />
+      </div>
+      <div class="slds-form-element__control flex-col">
+        <div class="slds-select_container">
+          <select [ngModel]="selectedToCurrency"
+                  (ngModelChange)="onCurrencyChange($event, 'to')"
+                  name="Select Currency"
+                  class="slds-select">
+            <option *ngFor="let toCurrency of currencies" [ngValue]="toCurrency">{{toCurrency.label}}</option>
+          </select>
+        </div>
       </div>
     </div>
+
   </div>
   <div *ngIf="hasError" class="slds-form-error slds-text-color--error">
     <span>{{errorMessage}}</span>
   </div>
   <div class="slds-text-link-container">
     <a href="javascript:void(0);" class="slds-text-link" title="Disclaimer">
-      <span class="slds-text-heading_small">Disclaimer</span>
+      <span class="slds-text-heading">Disclaimer</span>
     </a>
   </div>
 

@@ -1,11 +1,21 @@
 @import '~scss/variables';
+@import '~scss/styles';
 .currency-converter-container {
   padding: 10px;
 }
 .slds {
-  &-form-element__label {
-    color: $label-color;
+  &-media__body {
+    margin-bottom: 10px;
   }
+  &-form-element {
+    margin-bottom: 10px;
+    &__label {
+      color: $label-color;
+      margin-bottom: 5px;
+    }
+  }
+
+
   &-text-link-container {
     text-align: right;
     .slds-text-link {
@@ -16,6 +26,20 @@
       }
     }
   }
+
+  &-input {
+    width: 175px;
+    padding-left: 4px;
+  }
+  &-select {
+    background-color: $select-background-color;
+    &_container {
+      width: 100px;
+      margin-left:10px;
+
+    }
+  }
+
 }
 
 

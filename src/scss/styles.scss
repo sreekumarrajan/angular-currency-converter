@@ -18,8 +18,16 @@
   border-radius: 2px;
   display: flex;
   align-items: center;
-  width: auto;
-  min-width: $container-min-width;
+  background: white;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: $break-large) {
