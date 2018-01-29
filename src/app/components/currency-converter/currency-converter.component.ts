@@ -14,6 +14,7 @@ export class CurrencyConverterComponent implements OnInit {
   fromCurrencyDenomination: number;
   toCurrencyDenomination: number;
   currencies: Array<Currency>;
+  hasError: boolean = false;
   readonly DEFAULT_SELECTED_FROM_CURRENCY = 'CAD';
   readonly DEFAULT_SELECTED_TO_CURRENCY = 'USD';
 
@@ -41,22 +42,24 @@ export class CurrencyConverterComponent implements OnInit {
         this.selectedFromCurrency = newValue;
         this.currencyService.getExchangeRates(this.selectedFromCurrency, this.selectedToCurrency)
           .subscribe(res => {
+            this.hasError = false;
             if (res && res.conversionRate) {
               this.toCurrencyDenomination = (Number)((this.fromCurrencyDenomination * res.conversionRate).toFixed(2));
             }
           }, error => {
-            console.log(error);
+            this.handleComponentError(error);
           });
         break;
       case 'to':
         this.selectedToCurrency = newValue;
         this.currencyService.getExchangeRates(this.selectedFromCurrency, this.selectedToCurrency)
           .subscribe(res => {
+            this.hasError = false;
             if (res && res.conversionRate) {
               this.fromCurrencyDenomination = (Number)((this.toCurrencyDenomination / res.conversionRate).toFixed(2));
             }
           }, error => {
-            console.log(error);
+            this.handleComponentError(error);
           });
         break;
       default:
@@ -66,7 +69,8 @@ export class CurrencyConverterComponent implements OnInit {
 
   onInputChange(newValue, changedField) {
 
-    const existingConversionRate =  this.toCurrencyDenomination / this.fromCurrencyDenomination;
+    const existingConversionRate =  this.fromCurrencyDenomination !== 0 ?
+      this.toCurrencyDenomination / this.fromCurrencyDenomination : 0;
 
     switch ( changedField ) {
       case 'from':
@@ -75,12 +79,18 @@ export class CurrencyConverterComponent implements OnInit {
         break;
       case 'to':
         this.toCurrencyDenomination = newValue;
-        this.fromCurrencyDenomination = (Number)((newValue / existingConversionRate).toFixed(2));
+        this.fromCurrencyDenomination = existingConversionRate !== 0 ?
+          (Number)((newValue / existingConversionRate).toFixed(2)) : 0 ;
         break;
       default:
         break;
     }
 
+  }
+
+  handleComponentError( error ) {
+    this.hasError = true;
+    this.errorMessage = error.errorMessage ? error.errorMessage : 'Oops, something went wrong!';
   }
 
 }

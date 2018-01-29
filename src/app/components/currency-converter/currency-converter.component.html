@@ -46,6 +46,9 @@
       </div>
     </div>
   </div>
+  <div *ngIf="hasError" class="slds-form-error slds-text-color--error">
+    <span>{{errorMessage}}</span>
+  </div>
   <div class="slds-text-link-container">
     <a href="javascript:void(0);" class="slds-text-link" title="Disclaimer">
       <span class="slds-text-heading_small">Disclaimer</span>

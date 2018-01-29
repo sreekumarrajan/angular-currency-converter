@@ -17,7 +17,17 @@ export class ApiService {
     let exchangeRateUrl = APP_ENDPOINTS.ExchangeRateUrl;
     exchangeRateUrl = exchangeRateUrl.replace(APP_ENDPOINTS.ReplacementStrings.Base, base.label);
     exchangeRateUrl = exchangeRateUrl.replace(APP_ENDPOINTS.ReplacementStrings.Target, target.label);
-    return this.http.get(exchangeRateUrl);
+    return this.http.get(exchangeRateUrl)
+      .catch(error => this.handleError(error));
+  }
+
+  handleError(error) {
+      if (error && error.hasOwnProperty('status')) {
+        if (error.status < 200 || error.status > 300) {
+          return Observable.throw({'errorMessage': 'Oops, Network issues! Please try again'});
+        }
+      }
+      return Observable.throw({'errorMessage': 'Oops, something went wrong!'});
   }
 
 }
